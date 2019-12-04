@@ -1,4 +1,4 @@
-import { getDigitAt, incrementAt, setDigitAt } from "./number-tools";
+import { getDigitAt, incrementAt, setDigitAt } from './number-tools';
 
 describe('Number tools', () => {
   describe('getDigitAt', () => {
@@ -17,7 +17,7 @@ describe('Number tools', () => {
 
   describe('incrementAt', () => {
     it('should return 1338 for digit 0 of 1337', () => {
-      expect(incrementAt(1337, 0)).toEqual(1338); 
+      expect(incrementAt(1337, 0)).toEqual(1338);
     });
 
     it('should return 0 for digit 4 of 100500', () => {
@@ -31,7 +31,7 @@ describe('Number tools', () => {
 
   describe('setDigitAt', () => {
     it('should set the right digit up', () => {
-      expect(setDigitAt(1332, 0, 7)).toEqual(1337); 
+      expect(setDigitAt(1332, 0, 7)).toEqual(1337);
     });
 
     it('should set the right digit if its down', () => {
