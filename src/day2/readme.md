@@ -1,9 +1,11 @@
-##Day 2
+## Day 2
 
 [Advent of code link](https://adventofcode.com/2019/day/2)
 
-###Part 1 task
-
+### Part 1 task
+<details>
+  <summary>Click to expand</summary>
+  <p>
 On the way to your gravity assist around the Moon, your ship computer beeps angrily about a "1202 program alarm". On the radio, an Elf is already explaining how to handle the situation: "Don't worry, that's perfectly norma--" The ship computer bursts into flames.
 
 You notify the Elves that the computer's magic smoke seems to have escaped. "That computer ran Intcode programs like the gravity assist program it was working on; surely there are enough spare parts up there to build a new Intcode computer!"
@@ -46,13 +48,37 @@ Step forward 4 positions to reach the next opcode, 2. This opcode works just lik
 Stepping forward 4 more positions arrives at opcode 99, halting the program.
 
 Here are the initial and final states of a few more small programs:
-
+```
 1,0,0,0,99 becomes 2,0,0,0,99 (1 + 1 = 2).
 2,3,0,3,99 becomes 2,3,0,6,99 (3 * 2 = 6).
 2,4,4,5,99,0 becomes 2,4,4,5,99,9801 (99 * 99 = 9801).
 1,1,1,4,99,5,6,0,99 becomes 30,1,1,4,2,5,6,0,99.
+```
 
 Once you have a working computer, the first step is to restore the gravity assist program (your puzzle input) to the "1202 program alarm" state it had just before the last computer caught fire. To do this, before running the program, replace position 1 with the value 12 and replace position 2 with the value 2. What value is left at position 0 after the program halts?
+</p>
+</details>
+
+### Part 1 Solution
+Nice, we're bulding a computer! 
+Step 1 would be obviously to write our program executor. Let's break it down into 2 parts:
+[Step executor](execute-step.ts)
+and
+[Program executor](execute-array.ts)
+We can add some tests from the puzzle to test that it works.
+
+Now for the puzzle itself it's quite straghtforward - just feed the input into the function like this:
+```typescript
+const program = [...inputData];
+program[1] = 12; // As per requirement
+program[2] = 2;  // Same
+
+executeArray(program);
+```
+and enjoy the view. 
+
+### Part 2
+
 
 
 
